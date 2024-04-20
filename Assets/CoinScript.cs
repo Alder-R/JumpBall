@@ -9,7 +9,7 @@ public class CoinScript : MonoBehaviour
 
     void Start()
     {
-        Coin_text.text = "内牢 : " + PlayerController.coin + " / 45";
+        Coin_text.text = "内牢 : " + PlayerController.coin + " / " + PlayerController.maxCoin;
     }
 
     void Update()
@@ -23,7 +23,7 @@ public class CoinScript : MonoBehaviour
         {
             PlayerController.coin++;
             Destroy(this.gameObject);
-            Coin_text.text = "内牢 : " + PlayerController.coin + " / 45";
+            Coin_text.text = "内牢 : " + PlayerController.coin + " / " + PlayerController.maxCoin;
         }
     }
 }
