@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 
     public static int maxCoin;
     public static int coin = 0;
+    int needCoin;
     bool CollectAllCoinIs = false;
 
     public bool isGround = true;            // 캐릭터가 땅에 있는지 확인할 변수
@@ -62,7 +63,7 @@ public class PlayerController : MonoBehaviour
             isGround = false;
         }
 
-        if (coin >= 30)     // 코인을 일정량 이상 모으면
+        if (coin >= needCoin)     // 코인을 일정량 이상 모으면
         {
             CollectAllCoinIs = true;
         }
@@ -105,11 +106,13 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(-100, 2, 0);
             maxCoin = 45;
+            needCoin = 30;
         }
         if (nowLevel == 2)
         {
             transform.position = new Vector3(100, 2, 0);
             maxCoin = 3;
+            needCoin = 3;
         }
     }
 }

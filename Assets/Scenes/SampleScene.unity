@@ -5064,6 +5064,7 @@ MonoBehaviour:
   jumpForce: 1.2
   isGround: 1
   eventSystem: {fileID: 0}
+  Coin_text: {fileID: 2019936199}
   nextLevelText: {fileID: 1657637927}
   camera: {fileID: 963194225}
 --- !u!1 &650330197
