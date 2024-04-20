@@ -21,7 +21,7 @@ public class MainCameraAction : MonoBehaviour
     private Vector3 currentVel;
 
     private float camera_dist = 0f; //리그로부터 카메라까지의 거리
-    public float camera_width = -20f; //가로넓이
+    public float camera_width = -16f; //가로넓이
     public float camera_height = 2f; //세로높이
     public float camera_fix = 3f;//레이케스트 후 리그쪽으로 올 거리
 

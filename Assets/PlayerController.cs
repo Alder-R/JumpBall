@@ -8,8 +8,10 @@ public class PlayerController : MonoBehaviour
 {
     public float Speed = 10.0f;
     public float rotateSpeed = 10.0f;       // 회전 속도
-    public float jumpForce = 1.6f;        // 점프하는 힘
+    public float jumpForce = 1.2f;        // 점프하는 힘
+
     public static int coin = 0;
+    bool CollectAllCoinIs = false;
 
     public bool isGround = true;            // 캐릭터가 땅에 있는지 확인할 변수
 
@@ -17,8 +19,13 @@ public class PlayerController : MonoBehaviour
 
     public CoinScript eventSystem;
 
+    public GameObject nextLevelText;
+
+    int nowLevel = 1;
+
     void Start()
     {
+        nextLevelText.SetActive(false);
         body = GetComponent<Rigidbody>();   // GetComponent를 활용하여 body에 해당 오브젝트의 Rigidbody를 넣어준다.
     }
 
@@ -42,13 +49,30 @@ public class PlayerController : MonoBehaviour
         }
 
         // 스페이스바를 누르면(또는 누르고 있으면), 그리고 캐릭터가 땅에 있다면
-        if (Input.GetKey(KeyCode.Space) && isGround)
+        if (Input.GetKeyDown(KeyCode.Space) && isGround)
         {
             // AddForce(방향, 힘을 어떻게 가할 것인가)
             body.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
             // 땅에서 떨어졌으므로 isGround를 false로 바꿈
             isGround = false;
+        }
+
+        if (coin >= 40)     // 코인을 일정량 이상 모으면
+        {
+            CollectAllCoinIs = true;
+        }
+
+        if (CollectAllCoinIs == true)
+        {
+            nextLevelText.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                CollectAllCoinIs = false;
+                nowLevel++;
+                coin = 0;
+                Respawn();
+            } 
         }
     }
 
@@ -61,5 +85,16 @@ public class PlayerController : MonoBehaviour
             // isGround를 true로 변경
             isGround = true;
         }
+
+        if (collision.collider.gameObject.CompareTag("Respawn"))
+        {
+            Respawn();
+        }
+    }
+    
+    void Respawn()
+    {
+        if (nowLevel == 1) transform.position = new Vector3(-100, 2, 0);
+        if (nowLevel == 2) transform.position = new Vector3(100, 2, 0);
     }
 }
