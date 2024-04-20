@@ -9,3 +9,9 @@
 - 맵에 흩어져 있는 코인을 일정량 이상 모으면 다음 레벨로 넘어갈 수 있다.
 - 맵에서 떨어지면 처음부터가 아니라 하고 있던 레벨의 시작 부분으로 순간이동한다.
 - 레벨은 각자 다른 테마를 가진다.
+
+이미지:
+- Unity 개발 화면
+![점프볼개발1](https://github.com/Alder-R/JumpBall/assets/164472332/f801f691-d200-443e-85cc-e60bca7cfc58)
+- Visual Studio 코드 작성 화면
+![점프볼개발2](https://github.com/Alder-R/JumpBall/assets/164472332/d6a26f43-3a55-40d2-b574-8834e1881151)
